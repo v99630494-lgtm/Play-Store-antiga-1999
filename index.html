@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Store 1999</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #008080;
+    font-family: Arial, sans-serif;
+}
+
+.store {
+    width: 95%;
+    max-width: 850px;
+    margin: 20px auto;
+    background: #c0c0c0;
+    border: 3px solid white;
+    border-right-color: #333;
+    border-bottom-color: #333;
+    box-shadow: 6px 6px #000;
+}
+
+.title {
+    background: #000080;
+    color: white;
+    padding: 9px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.header {
+    padding: 15px;
+}
+
+.logo {
+    color: #000080;
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.search {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.game {
+    margin: 12px 15px;
+    padding: 12px;
+    background: #ddd;
+    border: 2px solid white;
+    border-right-color: #444;
+    border-bottom-color: #444;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    background: #000080;
+    border: 2px solid black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.info {
+    flex: 1;
+}
+
+.info h2 {
+    margin: 0 0 5px;
+    font-size: 19px;
+}
+
+.info p {
+    margin: 4px 0;
+}
+
+.download {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: #c0c0c0;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid white;
+    border-right-color: #444;
+    border-bottom-color: #444;
+}
+
+.download:active {
+    border: 2px solid #444;
+    border-right-color: white;
+    border-bottom-color: white;
+}
+
+.warning {
+    margin: 15px;
+    padding: 12px;
+    background: #ffff00;
+    border: 2px solid black;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="store">
+
+    <div class="title">
+        RETRO STORE 1999
+    </div>
+
+    <div class="header">
+
+        <div class="logo">
+            ★ RETRO PLAY STORE ★
+        </div>
+
+        <input
+            class="search"
+            id="search"
+            placeholder="Pesquisar jogos..."
+            oninput="buscar()"
+        >
+
+    </div>
+
+    <div class="warning">
+        📱 Clique em <b>BAIXAR APK</b> para baixar o jogo.
+    </div>
+
+
+    <!-- JOGO 1 -->
+
+    <div class="game" data-name="Space Adventure">
+
+        <div class="icon">
+            🚀
+        </div>
+
+        <div class="info">
+
+            <h2>Space Adventure</h2>
+
+            <p>Versão: 1.0</p>
+            <p>Categoria: Aventura</p>
+
+            <!--
+            COLOQUE A URL REAL DO SEU APK AQUI
+            -->
+
+            <a
+                class="download"
+                href="apks/space-adventure.apk"
+            >
+                📥 BAIXAR APK
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- JOGO 2 -->
+
+    <div class="game" data-name="Pixel Racer">
+
+        <div class="icon">
+            🏎️
+        </div>
+
+        <div class="info">
+
+            <h2>Pixel Racer</h2>
+
+            <p>Versão: 1.0</p>
+            <p>Categoria: Corrida</p>
+
+            <a
+                class="download"
+                href="apks/pixel-racer.apk"
+            >
+                📥 BAIXAR APK
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- JOGO 3 -->
+
+    <div class="game" data-name="Monster Quest">
+
+        <div class="icon">
+            👾
+        </div>
+
+        <div class="info">
+
+            <h2>Monster Quest</h2>
+
+            <p>Versão: 1.0</p>
+            <p>Categoria: RPG</p>
+
+            <a
+                class="download"
+                href="apks/monster-quest.apk"
+            >
+                📥 BAIXAR APK
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- JOGO 4 -->
+
+    <div class="game" data-name="Zombie Night">
+
+        <div class="icon">
+            🧟
+        </div>
+
+        <div class="info">
+
+            <h2>Zombie Night</h2>
+
+            <p>Versão: 1.0</p>
+            <p>Categoria: Terror</p>
+
+            <a
+                class="download"
+                href="apks/zombie-night.apk"
+            >
+                📥 BAIXAR APK
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        RETRO STORE 1999<br>
+        Catálogo de jogos
+    </footer>
+
+</div>
+
+
+<script>
+
+function buscar() {
+
+    const texto =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    const jogos =
+        document.querySelectorAll(".game");
+
+    jogos.forEach(function(jogo) {
+
+        const nome =
+            jogo.dataset.name.toLowerCase();
+
+        if (nome.includes(texto)) {
+            jogo.style.display = "flex";
+        } else {
+            jogo.style.display = "none";
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+SEU-REPOSITORIO
+│
+├── index.html
+│
+└── apks
+    ├── space-adventure.apk
+    ├── pixel-racer.apk
+    ├── monster-quest.apk
+    └── zombie-night.apk
