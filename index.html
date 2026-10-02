@@ -1,0 +1,390 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Play Store 1999</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #008080;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+}
+
+.window {
+    width: 95%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: #c0c0c0;
+    border: 3px solid #fff;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    box-shadow: 5px 5px #000;
+}
+
+.titlebar {
+    background: #000080;
+    color: white;
+    padding: 7px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.titlebar span {
+    float: right;
+}
+
+.header {
+    padding: 15px;
+    border-bottom: 2px solid #808080;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000080;
+    margin-bottom: 10px;
+}
+
+.search {
+    display: flex;
+    gap: 5px;
+}
+
+.search input {
+    flex: 1;
+    padding: 8px;
+    border: 2px inset #fff;
+    font-size: 15px;
+}
+
+button {
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:active {
+    border: 2px solid #404040;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.banner {
+    margin: 15px;
+    padding: 12px;
+    background: #ffff00;
+    border: 2px solid #000;
+    font-weight: bold;
+}
+
+.games {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+}
+
+.game {
+    background: #e0e0e0;
+    border: 2px solid #fff;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    padding: 10px;
+}
+
+.game-icon {
+    width: 80px;
+    height: 80px;
+    background: #000080;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin-bottom: 8px;
+    border: 3px solid #000;
+}
+
+.game h2 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.game p {
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.download {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.download:active {
+    border: 2px solid #404040;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.status {
+    margin: 15px;
+    padding: 8px;
+    background: #000;
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+footer {
+    padding: 15px;
+    text-align: center;
+    font-size: 12px;
+    border-top: 2px solid #808080;
+}
+</style>
+</head>
+
+<body>
+
+<div class="window">
+
+    <div class="titlebar">
+        Retro Play Store 1999
+        <span>_ □ X</span>
+    </div>
+
+    <div class="header">
+
+        <div class="logo">
+            ★ RETRO PLAY STORE ★
+        </div>
+
+        <div class="search">
+            <input
+                type="text"
+                id="search"
+                placeholder="Pesquisar jogos..."
+                oninput="pesquisarJogos()"
+            >
+
+            <button onclick="pesquisarJogos()">
+                Buscar
+            </button>
+        </div>
+
+    </div>
+
+    <div class="banner">
+        🎮 BEM-VINDO À PLAY STORE RETRÔ!<br>
+        Jogos clássicos para download.
+    </div>
+
+    <div class="status" id="status">
+        STATUS: CONECTADO • SERVIDOR RETRÔ ONLINE
+    </div>
+
+    <div class="games" id="games">
+
+        <div class="game" data-name="Space Adventure">
+            <div class="game-icon">🚀</div>
+
+            <h2>Space Adventure</h2>
+
+            <p>Versão: 1.0</p>
+            <p>Tamanho: 12 MB</p>
+            <p>Categoria: Aventura</p>
+
+            <a
+                class="download"
+                href="apks/space-adventure.apk"
+                download="Space-Adventure.apk"
+                onclick="baixando('Space Adventure')"
+            >
+                📥 BAIXAR APK
+            </a>
+        </div>
+
+
+        <div class="game" data-name="Pixel Racer">
+            <div class="game-icon">🏎️</div>
+
+            <h2>Pixel Racer</h2>
+
+            <p>Versão: 2.1</p>
+            <p>Tamanho: 18 MB</p>
+            <p>Categoria: Corrida</p>
+
+            <a
+                class="download"
+                href="apks/pixel-racer.apk"
+                download="Pixel-Racer.apk"
+                onclick="baixando('Pixel Racer')"
+            >
+                📥 BAIXAR APK
+            </a>
+        </div>
+
+
+        <div class="game" data-name="Monster Quest">
+            <div class="game-icon">👾</div>
+
+            <h2>Monster Quest</h2>
+
+            <p>Versão: 1.5</p>
+            <p>Tamanho: 25 MB</p>
+            <p>Categoria: RPG</p>
+
+            <a
+                class="download"
+                href="apks/monster-quest.apk"
+                download="Monster-Quest.apk"
+                onclick="baixando('Monster Quest')"
+            >
+                📥 BAIXAR APK
+            </a>
+        </div>
+
+
+        <div class="game" data-name="Retro Fighter">
+            <div class="game-icon">🥊</div>
+
+            <h2>Retro Fighter</h2>
+
+            <p>Versão: 1.2</p>
+            <p>Tamanho: 20 MB</p>
+            <p>Categoria: Ação</p>
+
+            <a
+                class="download"
+                href="apks/retro-fighter.apk"
+                download="Retro-Fighter.apk"
+                onclick="baixando('Retro Fighter')"
+            >
+                📥 BAIXAR APK
+            </a>
+        </div>
+
+
+        <div class="game" data-name="Zombie Night">
+            <div class="game-icon">🧟</div>
+
+            <h2>Zombie Night</h2>
+
+            <p>Versão: 1.0</p>
+            <p>Tamanho: 30 MB</p>
+            <p>Categoria: Terror</p>
+
+            <a
+                class="download"
+                href="apks/zombie-night.apk"
+                download="Zombie-Night.apk"
+                onclick="baixando('Zombie Night')"
+            >
+                📥 BAIXAR APK
+            </a>
+        </div>
+
+
+        <div class="game" data-name="Super Blocks">
+            <div class="game-icon">🧱</div>
+
+            <h2>Super Blocks</h2>
+
+            <p>Versão: 3.0</p>
+            <p>Tamanho: 8 MB</p>
+            <p>Categoria: Puzzle</p>
+
+            <a
+                class="download"
+                href="apks/super-blocks.apk"
+                download="Super-Blocks.apk"
+                onclick="baixando('Super Blocks')"
+            >
+                📥 BAIXAR APK
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        Retro Play Store © 1999-2026<br>
+        Site fictício criado para fins de demonstração.
+    </footer>
+
+</div>
+
+
+<script>
+
+function pesquisarJogos() {
+
+    const texto = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    const jogos = document.querySelectorAll(".game");
+
+    let encontrados = 0;
+
+    jogos.forEach(function(jogo) {
+
+        const nome = jogo
+            .getAttribute("data-name")
+            .toLowerCase();
+
+        if (nome.includes(texto)) {
+            jogo.style.display = "block";
+            encontrados++;
+        } else {
+            jogo.style.display = "none";
+        }
+
+    });
+
+    document.getElementById("status").innerText =
+        "STATUS: " + encontrados + " JOGO(S) ENCONTRADO(S)";
+}
+
+
+function baixando(nome) {
+
+    document.getElementById("status").innerText =
+        "DOWNLOAD: " + nome + " • INICIANDO...";
+
+    setTimeout(function() {
+
+        document.getElementById("status").innerText =
+            "DOWNLOAD: " + nome + " • DOWNLOAD INICIADO!";
+
+    }, 500);
+
+}
+
+</script>
+
+</body>
+</html>
+```
